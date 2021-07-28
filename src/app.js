@@ -26,8 +26,7 @@ app.get("/date", (_, res) => {
 
 app.get("/text", async (_, res) => {
   try {
-    const text = await fs.readFile("./star-wars-ipsum.txt", "utf-8");
-    res.send(text).status(200);
+    res.send(await fs.readFile("./star-wars-ipsum.txt", "utf-8")).status(200);
   } catch (error) {
     res.send(error).status(500);
   }
